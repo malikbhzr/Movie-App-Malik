@@ -1,1 +1,1 @@
-export const apiHost =  '';
+export const apiHost =  'http://www.omdbapi.com/?apikey=b9bd48a6&s=Marvel';

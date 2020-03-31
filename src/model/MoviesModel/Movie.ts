@@ -1,8 +1,15 @@
-import CommonModel from '../CommonModel';
 
-export declare type Movies = Movie[];
 
-export declare type UTMovie = Movie | undefined;
+export interface Movie {
+    Title: string;
+    Year: string;
+    imdbID: string;
+    Type: string;
+    Poster: string;
+}
 
-export default interface Movie extends CommonModel {
+export interface MovieList {
+    Search: Array<Movie>;
+    totalResults: number;
+    Response: string;
 };

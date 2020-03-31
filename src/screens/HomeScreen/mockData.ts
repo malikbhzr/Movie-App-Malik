@@ -1,4 +1,4 @@
-const mock = [
+export const MockList =
     {
         Search: [{
             Title: "Captain Marvel",
@@ -64,4 +64,3 @@ const mock = [
         totalResults: 151,
         Response: "True"
     }
-]

@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
+import { ScrollView, SafeAreaView, FlatList, View, Text, Image, ActivityIndicator, } from 'react-native';
 import { useSelector, useDispatch } from "react-redux";
 import AppAction from '../../redux/action/AppAction';
+import MovieCards from '../../components/MovieCards';
+import { Title } from './styled';
+
 
 const HomeScreen = () => {
     const movieData = useSelector(state => state);
@@ -10,9 +14,28 @@ const HomeScreen = () => {
         dispatch(AppAction.getMovies());
     }, []);
 
-    console.log('movieList', movieData);
 
-    return <></>
+    const showMovieList = () => {
+        if(movieData && movieData.appData){
+            const { Search } = movieData.appData.movies;
+            return (
+                <ScrollView>
+                    <Title marginTop={20}>Movies on Theatre</Title>
+                    <MovieCards width={230} height={340} movieList={Search} borderRadius={10} />
+                    <Title marginTop={40}>Coming Soon</Title>
+                    <View style={{ marginTop: 64}}><MovieCards width={104} height={154} movieList={Search} borderRadius={6} /></View>
+                    <View style={{ marginTop: 80}}><MovieCards width={104} height={154} movieList={Search} borderRadius={6} /></View>
+                </ScrollView>
+            )
+        }
+        return <ActivityIndicator />
+    }
+
+    return(
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#1d1e28' }}>
+                {showMovieList()}
+        </SafeAreaView>
+    )
 }
 
 export default HomeScreen
