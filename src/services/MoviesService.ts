@@ -1,11 +1,12 @@
 import CommonService from './CommonService';
-import Movie from '../model/MoviesModel/Movie';
-import {apiHost} from '../utils'
+import { Movie } from '../model/MoviesModel/Movie';
+import { movieListApi, movieDetailApi } from '../utils'
 
 class MoviesService extends CommonService<Movie> {
   constructor() {
     super();
-    this.rootURL = apiHost;
+    this.rootURL = movieListApi;
+    this.detailsURL = movieDetailApi;
   }
 }
 
