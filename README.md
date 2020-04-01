@@ -33,4 +33,17 @@
   4. Do pod install " cd ios; pod install; cd .. "
   5. Run the command " npm run ios or android " to run the app
   
+  
+  
+# App folder structure
+
+  /                             : project / git root
++-- src/images                  : images assets of the app
++-- src/components              : all public shared components
++-- src/screens                 : all screens of the app
++-- src/redux                   : redux setup of the app
++-- src/service                 : api services of the app
++-- src/model                   : data models of the app
++-- src/utils                   : network util of the app
+  
 
