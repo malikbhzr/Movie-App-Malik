@@ -1,3 +1,6 @@
+
+![](./src/images/Home.png)
+
 # About Movie App
 
   The movie app is build using react native. App will fetch the list of movies from the given 
