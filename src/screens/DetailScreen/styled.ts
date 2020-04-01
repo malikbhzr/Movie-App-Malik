@@ -6,36 +6,12 @@ export const BackgroundImage = styled.Image`
 `;
 
 export const PosterContainer = styled.View`
-    flex: 1;
     flex-direction: row;
+    width: 80%;
 `;
 
 export const HorizontalContainer = styled.View`
     flex-direction: column;
-`;
-
-export const ReviewContainer = styled.View`
-    width: 150;
-    justify-content: center;
-    align-items: center;
-`;
-
-export const SmallLabelBold = styled.Text`
-    font-size: 9px;
-    color: #9DA3B4;
-    margin-top: 7px;
-`;
-
-export const SmallLabelWhite = styled.Text`
-    font-size: 9px;
-    color: #fff;
-    margin-top: 7px;
-`;
-
-export const ColoredLabel = styled.Text`
-    font-size: 20px;
-    color: ${props => props.labelColor};
-    margin-top: 7px;
 `;
 
 

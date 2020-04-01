@@ -5,8 +5,7 @@ import DetailAction from '../../redux/action/DetailAction';
 import { BackgroundImage, PosterContainer, PosterImage, 
         HorizontalContainer, PosterTextBold, PosterTextWhite,
         Seperator, StoryLineContainer, SectionTitleStyle,
-        StoryLineContent, ReviewContainer, ColoredLabel,
-        SmallLabelBold, SmallLabelWhite } from './styled';
+        StoryLineContent } from './styled';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const DetailScreen = ({ navigation: { goBack, state: { params } } }: any) => {
@@ -25,14 +24,6 @@ const DetailScreen = ({ navigation: { goBack, state: { params } } }: any) => {
                 <ScrollView>
                     <TouchableOpacity onPress={() => goBack()}><Text style={{color: '#fff', fontSize: 20, fontWeight: 'bold'}}>Go Back</Text></TouchableOpacity>
                     <BackgroundImage source={{ uri: detail.Poster }} />
-                    <Seperator />
-                        <HorizontalContainer>
-                            <ReviewContainer>
-                                <ColoredLabel labelColor={'green'}>9.4</ColoredLabel>
-                                <SmallLabelWhite>MetaScore</SmallLabelWhite>
-                                <SmallLabelBold>53 Critic Reviews</SmallLabelBold>
-                            </ReviewContainer>
-                        </HorizontalContainer>
                     <Seperator />
                     <PosterContainer>
                         <PosterImage source={{ uri: detail.Poster }} />
@@ -54,13 +45,6 @@ const DetailScreen = ({ navigation: { goBack, state: { params } } }: any) => {
                         </StoryLineContent>
                     </StoryLineContainer>
                     <Seperator />
-                    {/* <CastsContainer>
-                        <SectionTitleStyle>
-                            Full Cast & Crew
-                        </SectionTitleStyle>
-                        <ScrollView horizontal>
-                        </ScrollView>
-                    </CastsContainer> */}
                 </ScrollView>
             )
         }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Movie } from '../../model/MoviesModel/Movie';
+import { View } from 'react-native';
 import {
   TransactionStyle,
   ImageContainer,
@@ -28,7 +29,7 @@ export default function MoviItem({
   return (
     <TransactionStyle onPress={() => nav('DetailScreen', { itemId: imdbID})}>
       <ImageContainer height={height} width={width} borderRadius={borderRadius} source={{ uri: Poster }} />
-      <TitleStyle>{Title}</TitleStyle>
+      <View style={{ width: width }}><TitleStyle>{Title}</TitleStyle></View>
     </TransactionStyle>
   );
 }

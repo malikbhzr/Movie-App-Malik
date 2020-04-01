@@ -8,7 +8,7 @@ interface MovieListProps {
   height: number;
   width: number;
   borderRadius: number;
-  nav: any,
+  nav: any
 }
 
 export default function MovieCards({
