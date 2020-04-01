@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import { ScrollView, SafeAreaView, FlatList, View, Text, Image, ActivityIndicator, } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { useSelector, useDispatch } from "react-redux";
-import AppAction from '../../redux/action/AppAction';
+import DetailAction from '../../redux/action/DetailAction';
 
 const DetailScreen = () => {
     const movieData = useSelector(state => state);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // dispatch(AppAction.getItemDetails('tt4154664'));
+        dispatch(DetailAction.getMovieDetail('tt4154664'));
     }, []);
 
     console.log('movieDatamovieData', movieData);

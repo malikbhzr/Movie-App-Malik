@@ -5,7 +5,7 @@
 import React from 'react';
 import {AppRegistry} from 'react-native';
 import {name as appName} from './app.json';
-import HomeScreen from './src/screens/HomeScreen';
+import DetailScreen from './src/screens/DetailScreen';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import rootReducer from './src/redux/reducer/ReducerFactory';
@@ -24,7 +24,7 @@ const store = configureStore();
 
 const MovieApp = () => (
     <Provider store={store}>
-      <HomeScreen />
+      <DetailScreen />
     </Provider>
   );
 
