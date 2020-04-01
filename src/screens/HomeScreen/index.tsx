@@ -1,19 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScrollView, SafeAreaView, View, ActivityIndicator, } from 'react-native';
 import { useSelector, useDispatch } from "react-redux";
 import AppAction from '../../redux/action/AppAction';
 import MovieCards from '../../components/MovieCards';
 import { Title } from './styled';
+import { SearchBar } from 'react-native-elements';
 
 
 const HomeScreen = ({ navigation }: any) => {
     const movieData = useSelector(state => state);
     const dispatch = useDispatch();
-    
-
+    const [ searchMovie, setSearchMovie ] = useState(null);
     useEffect(() => {
         dispatch(AppAction.getMovies());
     }, []);
+
 
     const showMovieList = () => {
         const { navigate } = navigation;
@@ -21,6 +22,11 @@ const HomeScreen = ({ navigation }: any) => {
             const { Search } = movieData.appData.movies;
             return (
                 <ScrollView>
+                    <SearchBar
+                        placeholder="Type Here..."
+                        onChangeText={setSearchMovie}
+                        value={searchMovie}
+                    />
                     <Title marginTop={20}>Movies on Theatre</Title>
                     <MovieCards nav={navigate} width={230} height={340} textWidth={230} movieList={Search} borderRadius={10} />
                     <Title marginTop={40}>Coming Soon</Title>
