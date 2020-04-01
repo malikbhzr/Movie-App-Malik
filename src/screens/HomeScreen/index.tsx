@@ -22,11 +22,6 @@ const HomeScreen = ({ navigation }: any) => {
             const { Search } = movieData.appData.movies;
             return (
                 <ScrollView>
-                    <SearchBar
-                        placeholder="Type Here..."
-                        onChangeText={setSearchMovie}
-                        value={searchMovie}
-                    />
                     <Title marginTop={20}>Movies on Theatre</Title>
                     <MovieCards nav={navigate} width={230} height={340} textWidth={230} movieList={Search} borderRadius={10} />
                     <Title marginTop={40}>Coming Soon</Title>
@@ -44,6 +39,9 @@ const HomeScreen = ({ navigation }: any) => {
 
     return(
         <SafeAreaView style={{ flex: 1, backgroundColor: '#1d1e28' }}>
+                <SearchBar
+                    placeholder="Type Here..."
+                />
                 {showMovieList()}
         </SafeAreaView>
     )
