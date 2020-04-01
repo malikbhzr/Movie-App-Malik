@@ -36,8 +36,8 @@
   
   
 # Folder Structure
-    .
-    ├── src/images                  # images assets of the app
+    /                               # root of the app
+    ├── src/images                  # image assets of the app
     ├── src/components              # all public shared components
     ├── src/screens                 # all screens of the app
     ├── utils                       # network util of the app
