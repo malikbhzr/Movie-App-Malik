@@ -8,13 +8,15 @@ interface MovieListProps {
   height: number;
   width: number;
   borderRadius: number;
+  nav: any,
 }
 
 export default function MovieCards({
   movieList,
   height,
   width,
-  borderRadius
+  borderRadius,
+  nav
 }: MovieListProps) {
   console.log('movieList', movieList);
   return (
@@ -23,7 +25,7 @@ export default function MovieCards({
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item: any) => item.imdbID}
         data={movieList}
-        renderItem={(movie) => ( <MovieItem movie={movie} height={height} width={width} borderRadius={borderRadius} /> )}
+        renderItem={(movie) => ( <MovieItem nav={nav} movie={movie} height={height} width={width} borderRadius={borderRadius} /> )}
       />
   );
 }

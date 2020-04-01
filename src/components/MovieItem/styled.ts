@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const TransactionStyle = styled.View`
+export const TransactionStyle = styled.TouchableOpacity`
   margin-horizontal: 16px;
   margin-top: 16px;
 `;

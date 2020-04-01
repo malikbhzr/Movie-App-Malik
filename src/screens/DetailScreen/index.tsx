@@ -1,20 +1,76 @@
 import React, { useEffect } from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, ScrollView, ActivityIndicator, View, Text } from 'react-native';
 import { useSelector, useDispatch } from "react-redux";
 import DetailAction from '../../redux/action/DetailAction';
+import { BackgroundImage, PosterContainer, PosterImage, 
+        HorizontalContainer, PosterTextBold, PosterTextWhite,
+        Seperator, StoryLineContainer, SectionTitleStyle,
+        StoryLineContent, ReviewContainer, ColoredLabel,
+        SmallLabelBold, SmallLabelWhite } from './styled';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const DetailScreen = () => {
-    const movieData = useSelector(state => state);
+const DetailScreen = ({ navigation: { goBack, state: { params } } }: any) => {
+    const movieData = useSelector(state => state.detailData);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(DetailAction.getMovieDetail('tt4154664'));
+        dispatch(DetailAction.getMovieDetail(params.itemId));
     }, []);
 
-    console.log('movieDatamovieData', movieData);
+
+    const showView = () => {
+        const { detail } = movieData;
+        if(detail){
+            console.log('POSTER', movieData);
+            return (
+                <ScrollView>
+                    <TouchableOpacity onPress={() => goBack()}><Text style={{color: '#fff', fontSize: 20, fontWeight: 'bold'}}>Go Back</Text></TouchableOpacity>
+                    <BackgroundImage source={{ uri: detail.Poster }} />
+                    <Seperator />
+                        <HorizontalContainer>
+                            <ReviewContainer>
+                                <ColoredLabel labelColor={'green'}>9.4</ColoredLabel>
+                                <SmallLabelWhite>MetaScore</SmallLabelWhite>
+                                <SmallLabelBold>53 Critic Reviews</SmallLabelBold>
+                            </ReviewContainer>
+                        </HorizontalContainer>
+                    <Seperator />
+                    <PosterContainer>
+                        <PosterImage source={{ uri: detail.Poster }} />
+                        <HorizontalContainer>
+                            <View style={{marginTop: 25}}><PosterTextBold>Title: <PosterTextWhite>{detail.Title}</PosterTextWhite></PosterTextBold></View>
+                            <PosterTextBold>Running Time: <PosterTextWhite>{detail.Runtime}</PosterTextWhite></PosterTextBold>
+                            <PosterTextBold>Release Date: <PosterTextWhite>{detail.Released}</PosterTextWhite></PosterTextBold>
+                            <PosterTextBold>Director: <PosterTextWhite>{detail.Director}</PosterTextWhite></PosterTextBold>
+                            <PosterTextBold>Writer: <PosterTextWhite>{detail.Writer}</PosterTextWhite></PosterTextBold>
+                        </HorizontalContainer>
+                    </PosterContainer>
+                    <Seperator />
+                    <StoryLineContainer>
+                        <SectionTitleStyle>
+                            Storyline
+                        </SectionTitleStyle>
+                        <StoryLineContent>
+                            {detail.Plot}
+                        </StoryLineContent>
+                    </StoryLineContainer>
+                    <Seperator />
+                    {/* <CastsContainer>
+                        <SectionTitleStyle>
+                            Full Cast & Crew
+                        </SectionTitleStyle>
+                        <ScrollView horizontal>
+                        </ScrollView>
+                    </CastsContainer> */}
+                </ScrollView>
+            )
+        }
+        return <ActivityIndicator />
+    }
 
     return(
         <SafeAreaView style={{ flex: 1, backgroundColor: '#1d1e28' }}>
+            {showView()}
         </SafeAreaView>
     )
 }

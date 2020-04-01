@@ -12,6 +12,7 @@ interface MoviItemProps {
   height: number,
   width: number,
   borderRadius: number,
+  nav: any,
 }
 
 export default function MoviItem({
@@ -19,14 +20,16 @@ export default function MoviItem({
     height,
     width,
     borderRadius,
+    nav
 }: MoviItemProps) {
 
   console.log('movie.Postermovie.Poster', movie)
 
-  const { Poster, Title } = movie.item;
+
+  const { Poster, Title, imdbID } = movie.item;
 
   return (
-    <TransactionStyle>
+    <TransactionStyle onPress={() => nav('DetailScreen', { itemId: imdbID})}>
       <ImageContainer height={height} width={width} borderRadius={borderRadius} source={{ uri: Poster }} />
       <TitleStyle>{Title}</TitleStyle>
     </TransactionStyle>
