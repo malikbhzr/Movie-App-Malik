@@ -1,5 +1,8 @@
 
 ![](./src/images/Home.png)
+![](./src/images/HomeScroll.png)
+![](./src/images/Detail.png)
+![](./src/images/Detail.png)
 
 # About Movie App
 
