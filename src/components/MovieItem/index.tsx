@@ -1,5 +1,4 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import { Movie } from '../../model/MoviesModel/Movie';
 import {
   TransactionStyle,
@@ -22,8 +21,6 @@ export default function MoviItem({
     borderRadius,
     nav
 }: MoviItemProps) {
-
-  console.log('movie.Postermovie.Poster', movie)
 
 
   const { Poster, Title, imdbID } = movie.item;

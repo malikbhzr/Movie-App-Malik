@@ -18,7 +18,6 @@ export default function MovieCards({
   borderRadius,
   nav
 }: MovieListProps) {
-  console.log('movieList', movieList);
   return (
       <FlatList
         horizontal

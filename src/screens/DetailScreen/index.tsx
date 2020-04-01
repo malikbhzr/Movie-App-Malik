@@ -21,7 +21,6 @@ const DetailScreen = ({ navigation: { goBack, state: { params } } }: any) => {
     const showView = () => {
         const { detail } = movieData;
         if(detail){
-            console.log('POSTER', movieData);
             return (
                 <ScrollView>
                     <TouchableOpacity onPress={() => goBack()}><Text style={{color: '#fff', fontSize: 20, fontWeight: 'bold'}}>Go Back</Text></TouchableOpacity>

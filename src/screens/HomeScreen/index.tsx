@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ScrollView, SafeAreaView, FlatList, View, Text, Image, ActivityIndicator, } from 'react-native';
+import { ScrollView, SafeAreaView, View, ActivityIndicator, } from 'react-native';
 import { useSelector, useDispatch } from "react-redux";
 import AppAction from '../../redux/action/AppAction';
 import MovieCards from '../../components/MovieCards';
@@ -14,10 +14,6 @@ const HomeScreen = ({ navigation }: any) => {
     useEffect(() => {
         dispatch(AppAction.getMovies());
     }, []);
-
-    const goToNext = (navigate: any, id: string) => {
-        console.log('111111', id);
-    }
 
     const showMovieList = () => {
         const { navigate } = navigation;
