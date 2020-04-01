@@ -7,7 +7,7 @@ export const BackgroundImage = styled.Image`
 
 export const PosterContainer = styled.View`
     flex-direction: row;
-    width: 80%;
+    width: 55%;
 `;
 
 export const HorizontalContainer = styled.View`

@@ -24,11 +24,11 @@ const HomeScreen = ({ navigation }: any) => {
                 <ScrollView>
                     <Title marginTop={20}>Movies on Theatre</Title>
                     <MovieCards nav={navigate} width={230} height={340} textWidth={230} movieList={Search} borderRadius={10} />
-                    <Title marginTop={40}>Coming Soon</Title>
-                    <View style={{ marginTop: 64}}>
+                    <Title marginTop={0}>Coming Soon</Title>
+                    <View style={{ marginTop: 10}}>
                         <MovieCards nav={navigate} width={104} height={154} textWidth={230} movieList={Search} borderRadius={6} />
                     </View>
-                    <View style={{ marginTop: 80}}>
+                    <View style={{ marginTop: -40}}>
                         <MovieCards nav={navigate} width={104} height={154}  movieList={Search} borderRadius={6} />
                     </View>
                 </ScrollView>
