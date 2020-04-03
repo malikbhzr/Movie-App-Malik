@@ -4,16 +4,21 @@ import {useSelector, useDispatch} from 'react-redux';
 import AppAction from '../../redux/action/AppAction';
 import MovieCards from '../../components/MovieCards';
 import {Title} from './styled';
-import {SearchBar} from 'react-native-elements';
+import { SearchBar } from 'react-native-elements';
+import SplashScreen from 'react-native-splash-screen';
 
 const HomeScreen = ({navigation}: any) => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, [])
+
   const movieData = useSelector(state => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(AppAction.getMovies());
   }, []);
-  
+
     const showMovieList = () => {
         const { navigate } = navigation;
         if(movieData && movieData.appData){
