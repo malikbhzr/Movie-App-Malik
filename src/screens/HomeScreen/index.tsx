@@ -5,26 +5,15 @@ import AppAction from '../../redux/action/AppAction';
 import MovieCards from '../../components/MovieCards';
 import {Title} from './styled';
 import {SearchBar} from 'react-native-elements';
-import SplashScreen from 'react-native-splash-screen';
 
 const HomeScreen = ({navigation}: any) => {
   const movieData = useSelector(state => state);
   const dispatch = useDispatch();
-  const [searchMovie, setSearchMovie] = useState(null);
+
   useEffect(() => {
     dispatch(AppAction.getMovies());
-    SplashScreen.hide();
   }, []);
-
-const HomeScreen = ({ navigation }: any) => {
-    const movieData = useSelector(state => state);
-    const dispatch = useDispatch();
-    const [ searchMovie, setSearchMovie ] = useState(null);
-    useEffect(() => {
-        dispatch(AppAction.getMovies());
-    }, []);
-
-
+  
     const showMovieList = () => {
         const { navigate } = navigation;
         if(movieData && movieData.appData){
@@ -45,8 +34,6 @@ const HomeScreen = ({ navigation }: any) => {
         }
         return <ActivityIndicator />
     }
-    return <ActivityIndicator />;
-  };
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#1d1e28'}}>
