@@ -6,12 +6,8 @@ import {
   TitleStyle,
 } from './styled';
 
-interface OneItem {
-  item: Movie;
-} 
-
 interface MoviItemProps {
-  movie: OneItem;
+  movie: Movie;
   nav: any,
 }
 
@@ -21,12 +17,12 @@ export default function MoviItem({
 }: MoviItemProps) {
 
 
-  const { item } = movie;
+  console.log('movie', movie);
 
   return (
-    <TransactionStyle onPress={() => nav('DetailScreen', { itemId: item.imdbID})}>
-      <ImageContainer  source={{ uri: item.Poster }} />
-      <TitleStyle>{item.Title}</TitleStyle>
+    <TransactionStyle onPress={() => nav('DetailScreen', { itemId: movie.imdbID})}>
+      <ImageContainer  source={{ uri: movie.Poster }} />
+      <TitleStyle>{movie.Title}</TitleStyle>
     </TransactionStyle>
   );
 }
