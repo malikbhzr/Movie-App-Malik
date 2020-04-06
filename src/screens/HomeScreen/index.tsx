@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {ScrollView, SafeAreaView, View, ActivityIndicator} from 'react-native';
+import React, { useEffect } from 'react';
+import {ScrollView, SafeAreaView, ActivityIndicator} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import AppAction from '../../redux/action/AppAction';
 import MovieCards from '../../components/MovieCards';
@@ -25,15 +25,11 @@ const HomeScreen = ({navigation}: any) => {
             const { Search } = movieData.appData.movies;
             return (
                 <ScrollView>
-                    <Title marginTop={20}>Movies on Theatre</Title>
-                    <MovieCards nav={navigate} width={230} height={340} textWidth={230} movieList={Search} borderRadius={10} />
-                    <Title marginTop={0}>Coming Soon</Title>
-                    <View style={{ marginTop: 10}}>
-                        <MovieCards nav={navigate} width={104} height={154} textWidth={230} movieList={Search} borderRadius={6} />
-                    </View>
-                    <View style={{ marginTop: -40}}>
-                        <MovieCards nav={navigate} width={104} height={154}  movieList={Search} borderRadius={6} />
-                    </View>
+                    <Title>Movies on Theatre</Title>
+                    <MovieCards nav={navigate} movieList={Search} />
+                    <Title>Coming Soon</Title>
+                    <MovieCards nav={navigate} movieList={Search} />
+                    <MovieCards nav={navigate}  movieList={Search} />
                 </ScrollView>
             )
         }
@@ -42,7 +38,7 @@ const HomeScreen = ({navigation}: any) => {
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#1d1e28'}}>
-      <SearchBar placeholder="Type Here..." />
+      <SearchBar placeholder='Type Here...' />
       {showMovieList()}
     </SafeAreaView>
   );

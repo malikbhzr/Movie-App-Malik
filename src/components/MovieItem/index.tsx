@@ -1,35 +1,32 @@
 import React from 'react';
 import { Movie } from '../../model/MoviesModel/Movie';
-import { View } from 'react-native';
 import {
   TransactionStyle,
   ImageContainer,
   TitleStyle,
 } from './styled';
 
+interface OneItem {
+  item: Movie;
+} 
+
 interface MoviItemProps {
-  movie: Movie;
-  height: number,
-  width: number,
-  borderRadius: number,
+  movie: OneItem;
   nav: any,
 }
 
 export default function MoviItem({
     movie,
-    height,
-    width,
-    borderRadius,
     nav
 }: MoviItemProps) {
 
 
-  const { Poster, Title, imdbID } = movie.item;
+  const { item } = movie;
 
   return (
-    <TransactionStyle onPress={() => nav('DetailScreen', { itemId: imdbID})}>
-      <ImageContainer height={height} width={width} borderRadius={borderRadius} source={{ uri: Poster }} />
-      <View style={{ width: width }}><TitleStyle>{Title}</TitleStyle></View>
+    <TransactionStyle onPress={() => nav('DetailScreen', { itemId: item.imdbID})}>
+      <ImageContainer  source={{ uri: item.Poster }} />
+      <TitleStyle>{item.Title}</TitleStyle>
     </TransactionStyle>
   );
 }

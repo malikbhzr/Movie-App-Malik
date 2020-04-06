@@ -6,10 +6,10 @@ export const TransactionStyle = styled.TouchableOpacity`
 `;
 
 export const ImageContainer = styled.Image`
-  width: ${props => props.width};
-  height: ${props => props.height};
+  width: 90px;
+  height: 150px;
   background-color: #ccc;
-  border-radius: ${props => props.borderRadius};
+  border-radius: 6px;
 `;
 
 export const TitleStyle = styled.Text`

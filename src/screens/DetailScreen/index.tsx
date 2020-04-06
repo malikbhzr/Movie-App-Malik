@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { SafeAreaView, ScrollView, ActivityIndicator, View, Text } from 'react-native';
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 import DetailAction from '../../redux/action/DetailAction';
 import { BackgroundImage, PosterContainer, PosterImage, 
         HorizontalContainer, PosterTextBold, PosterTextWhite,

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie item render with mock data should render with mock data 1`] = `ShallowWrapper {}`;
