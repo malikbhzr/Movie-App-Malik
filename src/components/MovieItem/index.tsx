@@ -17,12 +17,16 @@ export default function MoviItem({
 }: MoviItemProps) {
 
 
-  console.log('movie', movie);
+  const showItem = () => {
+    if(movie){
+      return (
+        <TransactionStyle onPress={() => nav('DetailScreen', { itemId: movie.imdbID})}>
+          <ImageContainer  source={{ uri: movie.Poster }} />
+          <TitleStyle>{movie.Title}</TitleStyle>
+        </TransactionStyle>
+      );
+    }
+  }
 
-  return (
-    <TransactionStyle onPress={() => nav('DetailScreen', { itemId: movie.imdbID})}>
-      <ImageContainer  source={{ uri: movie.Poster }} />
-      <TitleStyle>{movie.Title}</TitleStyle>
-    </TransactionStyle>
-  );
+  return showItem();
 }

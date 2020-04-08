@@ -1,24 +1,29 @@
 import React from 'react';
 import MovieItem from '../';
-import Enzyme from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import { shallow, ShallowWrapper } from 'enzyme';
 import { MockItem } from '../mockData';
+import { render, fireEvent } from 'react-native-testing-library';
 
-Enzyme.configure({ adapter: new Adapter() });
-
-describe("Movie item", () => {
-
-  describe("render with mock data", () => {
+  describe("Movie item", () => {
+    let wrapper: any = null;
     let item = MockItem;
     const movie={item}
-    const navigation = jest.fn();
-    let wrapper: ShallowWrapper;
-    wrapper = shallow(<MovieItem movie={movie} nav={navigation}  />);
-  
-    it("should render with mock data", () => {
-        expect(wrapper).toMatchSnapshot()
+    const navigate = jest.fn();
+    const navigation: any = {
+      navigate,
+      state: {
+        params: {
+          itemId: 'tt2620204',
+        },
+      },
+    };
+
+    beforeEach(() => {
+      wrapper = render(
+        <MovieItem movie={movie} nav={navigation} />
+      );
     });
-  })
-  
-});
+
+    test('Movie item should render correctly', () => {
+      expect(wrapper).toMatchSnapshot();
+    });
+  });

@@ -21,7 +21,8 @@ const HomeScreen = ({navigation}: any) => {
 
     const showMovieList = () => {
         const { navigate } = navigation;
-        if(movieData && movieData.appData){
+        console.log('movieData', movieData)
+        if(movieData){
             const { Search } = movieData.appData.movies;
             return (
                 <ScrollView>
@@ -33,7 +34,8 @@ const HomeScreen = ({navigation}: any) => {
                 </ScrollView>
             )
         }
-        return <ActivityIndicator />
+
+        return <ActivityIndicator color='#fff' style={{alignSelf: 'center'}} size="large" />
     }
 
   return (
