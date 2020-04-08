@@ -21,7 +21,6 @@ const HomeScreen = ({navigation}: any) => {
 
     const showMovieList = () => {
         const { navigate } = navigation;
-        console.log('movieData', movieData)
         if(movieData){
             const { Search } = movieData.appData.movies;
             return (
