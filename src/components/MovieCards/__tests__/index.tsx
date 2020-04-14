@@ -1,6 +1,5 @@
 import React from 'react';
-import MovieItem from '../';
-import { MockItem } from '../mockData';
+import MovieList from '../';
 import { render, fireEvent } from 'react-native-testing-library';
 
   describe("Movie item", () => {

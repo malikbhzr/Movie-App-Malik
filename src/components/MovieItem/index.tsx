@@ -8,7 +8,7 @@ import {
 
 interface MoviItemProps {
   movie: Movie;
-  nav: any,
+  nav: () => void,
 }
 
 export default function MoviItem({
@@ -20,7 +20,7 @@ export default function MoviItem({
   const showItem = () => {
     if(movie){
       return (
-        <TransactionStyle onPress={() => nav('DetailScreen', { itemId: movie.imdbID})}>
+        <TransactionStyle testID="cardItem" onPress={() => nav('DetailScreen', { itemId: movie.imdbID})}>
           <ImageContainer  source={{ uri: movie.Poster }} />
           <TitleStyle>{movie.Title}</TitleStyle>
         </TransactionStyle>
