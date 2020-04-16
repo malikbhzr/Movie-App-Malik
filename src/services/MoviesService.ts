@@ -1,6 +1,6 @@
 import CommonService from './CommonService';
 import { Movie } from '../model/MoviesModel/Movie';
-import { movieListApi } from '../utils'
+import { movieListApi } from '../utils';
 
 class MoviesService extends CommonService<Movie> {
   constructor() {
